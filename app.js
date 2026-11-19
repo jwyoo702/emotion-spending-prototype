@@ -363,11 +363,21 @@
   let fitScale = 1;
   const wrapEl = document.querySelector('.wrap');
   const fit = () => {
-    const desktop = innerWidth > 640 && !document.body.classList.contains('bare');
-    const need = 852 + 20 + 48 + 20; // 프레임 + 테두리 + 위아래 여백
-    fitScale = desktop ? Math.min(1, innerHeight / need) : 1;
-    wrapEl.style.transform = fitScale < 1 ? 'scale(' + fitScale + ')' : '';
+    const bare = document.body.classList.contains('bare');
+    const mobile = innerWidth <= 640;
     wrapEl.style.transformOrigin = '50% 0';
+    if (bare) { fitScale = 1; wrapEl.style.transform = wrapEl.style.marginBottom = wrapEl.style.marginTop = ''; return; }
+    if (mobile) { // 휴대폰: 가로·세로 중 더 빡빡한 쪽에 맞춰 화면 전체를 한 번에 보여 준다
+      fitScale = Math.min(innerWidth / 393, innerHeight / 852);
+      wrapEl.style.transform = 'scale(' + fitScale + ')';
+      wrapEl.style.marginTop = Math.max(0, (innerHeight - 852 * fitScale) / 2) + 'px';
+      wrapEl.style.marginBottom = -(852 * (1 - fitScale)) + 'px';
+      return;
+    }
+    const need = 852 + 20 + 48 + 20; // 프레임 + 테두리 + 위아래 여백
+    fitScale = Math.min(1, innerHeight / need);
+    wrapEl.style.marginTop = '';
+    wrapEl.style.transform = fitScale < 1 ? 'scale(' + fitScale + ')' : '';
     wrapEl.style.marginBottom = fitScale < 1 ? -(wrapEl.offsetHeight * (1 - fitScale)) + 'px' : '';
   };
   addEventListener('resize', fit);

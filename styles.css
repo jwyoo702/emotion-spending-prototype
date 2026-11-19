@@ -62,10 +62,12 @@ textarea { font: inherit; }
 .bare .index { display: none; }
 .bare .device { border-radius: 0; box-shadow: none; }
 @media (max-width: 640px) {
-  body { align-items: stretch; }
-  .wrap { padding: 0; width: 100%; }
+  /* 휴대폰: 393×852 화면을 그대로 두고 화면 크기에 맞춰 통째로 줄이거나 키운다 (잘리지 않게) */
+  html, body { overflow: hidden; background: var(--bg-page); }
+  body { align-items: flex-start; }
+  .wrap { padding: 0; width: 393px; flex: none; }
   .index { display: none; }
-  .device { width: 100vw; height: 100dvh; border-radius: 0; box-shadow: none; }
+  .device { width: 393px; height: 852px; border-radius: 0; box-shadow: none; }
 }
 
 /* ───────── 화면 공통 ───────── */
@@ -648,3 +650,5 @@ textarea { font: inherit; }
 /* 스크롤되는 화면(09, 10-1, 10-2)은 상태바를 상단에 고정 */
 .screen.scroll > .status { position: sticky; top: 0; z-index: 20; background: var(--bg-page); }
 .screen.scroll > .appbar, .screen.scroll > .rp-head { position: sticky; top: 54px; z-index: 20; background: var(--bg-page); }
+
+.jg-stage { touch-action: none; }
