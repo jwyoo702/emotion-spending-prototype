@@ -652,3 +652,9 @@ textarea { font: inherit; }
 .screen.scroll > .appbar, .screen.scroll > .rp-head { position: sticky; top: 54px; z-index: 20; background: var(--bg-page); }
 
 .jg-stage { touch-action: none; }
+
+/* 08-2 칩의 "..." 점이 차례로 나타난다 */
+.ana-chip .ell { display: inline-block; width: 1.1em; overflow: hidden; vertical-align: bottom; }
+.ana-chip .ell::before { content: "..."; display: inline-block; animation: ellw 1.2s steps(4, end) infinite; }
+@keyframes ellw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@media (prefers-reduced-motion: reduce) { .ana-chip .ell::before { animation: none; } }
