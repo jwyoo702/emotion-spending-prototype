@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>감정소비 회고</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="index" id="index" aria-label="화면 목록"><h2>화면</h2></nav>
+
+  <main class="device" id="device">
+
+    <!-- ═════════ 온보딩 1 ═════════ -->
+    <section class="screen white" id="ob1" data-title="온보딩 1">
+      <div class="status" data-tpl="status" data-levels="levels-ob"></div>
+      <div class="ob-skip"><button data-go="s01">건너뛰기</button></div>
+      <div class="ob-stage grow">
+        <div class="ob-shot"><div class="ob-view" aria-hidden="true" data-clone="s06"></div></div>
+      </div>
+      <div class="ob-text">
+        <h2>결제 내역에<br>그때의 감정을 남겨요</h2>
+        <p>카드 내역을 연결하고, 소비할 때 느낀 감정을<br>탭 한 번으로 기록해요</p>
+      </div>
+      <div class="ell"><i class="on"></i><i></i><i></i></div>
+      <div class="ob-cta"><button class="btn" data-go="ob2">다음</button></div>
+    </section>
+
+    <!-- ═════════ 온보딩 2 ═════════ -->
+    <section class="screen white" id="ob2" data-title="온보딩 2">
+      <div class="status" data-tpl="status" data-levels="ob2-levels"></div>
+      <div class="ob-skip"><button data-go="s01">건너뛰기</button></div>
+      <div class="ob-stage grow">
+        <div class="ob-shot"><div class="ob-view" aria-hidden="true" data-clone="s10a"></div></div>
+      </div>
+      <div class="ob-text">
+        <h2>어떤 감정에 얼마를 썼는지<br>근거와 함께 보여드려요</h2>
+        <p>시간대별 소비와 감정을<br>월간·주간 그래프로 확인해요</p>
+      </div>
+      <div class="ell"><i></i><i class="on"></i><i></i></div>
+      <div class="ob-cta"><button class="btn" data-go="ob3">다음</button></div>
+    </section>
+
+    <!-- ═════════ 온보딩 3 ═════════ -->
+    <section class="screen white" id="ob3" data-title="온보딩 3">
+      <div class="status" data-tpl="status" data-levels="levels-ob"></div>
+      <div class="ob-skip"><button data-go="s01">건너뛰기</button></div>
+      <div class="ob-stage grow">
+        <div class="ob-notes" aria-hidden="true">
+          <div class="nt n1">
+            <i class="ai"><svg viewBox="0 0 24 24"><path d="M13.5 2 5 13.4h5.6L9.6 22 19 9.8h-5.7z" fill="#fff"/></svg></i>
+            <div><div class="hd"><b>지금은 감정소비가 잦았던 시간대에요</b><em>1분 전</em></div><p>결제하기 전 잠깐 멈춰요! 지금 필요한 소비인지 확인해보세요</p></div>
+          </div>
+          <div class="nt n2">
+            <i class="ai"><svg viewBox="0 0 24 24"><path d="M13.5 2 5 13.4h5.6L9.6 22 19 9.8h-5.7z" fill="#fff"/></svg></i>
+            <div><div class="hd"><b>지난 소비 패턴 확인</b><em>1시간 전</em></div><p>목요일 밤 10시 이후에는 스트레스로 인한 배달 주문이 자주 있었어요. 오늘은 소비 목표를 한번 떠올려보세요!</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ob-text">
+        <h2>비슷한 소비가 반복되기 전에<br>먼저 알려드려요</h2>
+        <p>감정소비가 잦았던 시간대에<br>미리 알림을 보내드려요</p>
+      </div>
+      <div class="ell"><i></i><i></i><i class="on"></i></div>
+      <div class="ob-cta"><button class="btn" data-go="s01">시작하기</button></div>
+    </section>
+
+    <!-- ═════════ 01 소비 목표 설정 ═════════ -->
+    <section class="screen" id="s01" data-title="01 소비 목표 설정" style="padding-bottom:34px">
+      <div class="status" data-tpl="status" data-levels="s01-levels"></div>
+      <div class="progress" style="--p:33.33%"><i></i></div>
+      <div class="appbar p8">
+        <button class="icon-btn" data-go="ob3" aria-label="뒤로 가기"><img alt="" src="assets/back-22.svg"></button>
+        <h1>목표 설정</h1>
+        <button class="icon-btn" data-go="ob1" aria-label="닫기"><img alt="" src="assets/s01-icon1.svg"></button>
+      </div>
+      <div class="heading"><h2>월간 소비 목표를 정해볼까요?</h2></div>
+      <div class="goal-wrap">
+        <div class="card goal-card" data-goal data-days="30" data-max="3000000" data-step="10000">
+          <p class="lbl">한 달 생활비 목표</p>
+          <div class="amt"><b data-amount>800,000</b><span>원</span></div>
+          <p class="avg">하루 평균 <em data-avg>26,700원</em> 정도 쓸 수 있어요</p>
+          <div class="slider" data-slider>
+            <div class="track"></div><div class="fill"></div><div class="thumb"></div>
+            <input type="range" min="0" max="3000000" step="10000" value="800000" aria-label="한 달 생활비 목표">
+          </div>
+          <div class="range"><span>0원</span><span>300만원</span></div>
+        </div>
+        <div class="card cat-card">
+          <h3>특별히 관리하고 싶은 소비 항목이 있나요? (선택)</h3>
+          <div class="chips" data-chips>
+            <button class="chip">음식</button><button class="chip">카페</button><button class="chip">교통</button>
+            <button class="chip">쇼핑</button><button class="chip">배달</button><button class="chip">편의점</button>
+            <button class="chip">의류·뷰티</button><button class="chip">기타</button>
+          </div>
+        </div>
+      </div>
+      <div class="bottom grow" style="padding-top:24px">
+        <div class="cta"><button class="btn" data-go="s02">다음</button></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 02 소비 연동 ═════════ -->
+    <section class="screen" id="s02" data-title="02 소비 연동" style="padding-bottom:34px">
+      <div class="status" data-tpl="status" data-levels="levels-b"></div>
+      <div class="progress" style="--p:66.67%"><i></i></div>
+      <div class="appbar">
+        <button class="icon-btn" data-go="s01" aria-label="뒤로 가기"><img alt="" src="assets/back-22b.svg"></button>
+        <h1>은행 · 카드 연결</h1>
+        <button class="icon-btn text-btn" data-go="s04">건너뛰기</button>
+      </div>
+      <div class="heading">
+        <h2>소비 내역을 연결해<br>감정소비 패턴을 찾아볼까요?</h2>
+        <p class="desc16">나의 감정 소비 패턴을 확인할 수 있도록<br>카드사를 연결하고 나의 감정을 기록해보세요</p>
+      </div>
+      <div class="bottom grow" style="padding-top:24px">
+        <div class="cta"><button class="btn" data-go="s02b">다음</button></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 02-1 은행 · 카드 선택 ═════════ -->
+    <section class="screen" id="s02b" data-title="02-1 은행·카드 선택" style="padding-bottom:34px">
+      <div class="status" data-tpl="status" data-levels="levels-b"></div>
+      <div class="progress" style="--p:66.67%"><i></i></div>
+      <div class="appbar">
+        <button class="icon-btn" data-go="s02" aria-label="뒤로 가기"><img alt="" src="assets/back-22b.svg"></button>
+        <h1>은행 · 카드 선택</h1>
+        <span style="width:44px;height:44px"></span>
+      </div>
+      <div class="heading">
+        <h2>어디의 소비 내역을<br>가져올까요?</h2>
+        <p class="desc14">여러 곳을 선택할 수 있어요</p>
+      </div>
+      <div class="pick-seg"><div class="seg" data-pick-tabs><button class="on" data-tab="bank">은행</button><button data-tab="card">카드</button></div></div>
+      <div class="pick-list grow" data-picklist></div>
+      <div class="cta"><button class="btn" data-pick-next data-go="s03" disabled>은행·카드를 선택해주세요</button></div>
+    </section>
+
+    <!-- ═════════ 03 은행 연동 동의 ═════════ -->
+    <section class="screen" id="s03" data-title="03 은행 연동 동의">
+      <div class="status" data-tpl="status" data-levels="s03-levels"></div>
+      <div class="progress" style="--p:66.67%"><i></i></div>
+      <div class="appbar">
+        <button class="icon-bare" data-go="s02b" aria-label="뒤로 가기"><img alt="" src="assets/back-22.svg"></button>
+        <h1>은행 · 카드 선택</h1>
+        <button class="icon-bare" data-go="s02b" aria-label="닫기"><img alt="" src="assets/close-22.svg"></button>
+      </div>
+      <div class="bank-list" data-banks></div>
+      <div class="bottom" style="padding-bottom:34px">
+        <div class="cta"><button class="btn" data-open-sheet>연결하기</button></div>
+      </div>
+      <div class="dim" data-sheet-dim></div>
+      <div class="sheet" data-sheet role="dialog" aria-label="개인정보 이용 동의">
+        <div class="handle"></div>
+        <div class="head">
+          <h3>개인정보 이용 동의</h3>
+          <button class="x" data-sheet-close aria-label="닫기"><img alt="" src="assets/s03-icon2.svg"></button>
+        </div>
+        <div class="agree-box" data-agrees>
+          <button class="agree-row" data-req="1"><img class="ck" alt="" src="assets/s03-icon3.svg"><span>[필수] 개인(신용)정보 수집·이용 동의</span><img class="ch" alt="" src="assets/s03-icon4.svg"></button>
+          <button class="agree-row" data-req="1"><img class="ck" alt="" src="assets/s03-icon3.svg"><span>[필수] 마이데이터 서비스 이용약관</span><img class="ch" alt="" src="assets/s03-icon4.svg"></button>
+          <button class="agree-row"><img class="ck" alt="" src="assets/s03-icon3.svg"><span>[선택] 소비 패턴 분석 정보 활용</span><img class="ch" alt="" src="assets/s03-icon4.svg"></button>
+        </div>
+        <button class="agree-all" data-agree-all><span class="box"><img alt="" src="assets/s03-icon5.svg"></span><span>전체 동의</span></button>
+        <button class="btn" data-agree-go data-go="s04">동의하고 연결하기</button>
+      </div>
+    </section>
+
+    <!-- ═════════ 04 감정소비 알림 동의 ═════════ -->
+    <section class="screen" id="s04" data-title="04 알림 동의" style="padding-bottom:34px">
+      <div class="status" data-tpl="status" data-levels="levels-b"></div>
+      <div class="progress" style="--p:75.57%"><i></i></div>
+      <div class="appbar">
+        <button class="icon-btn" data-go="s03" aria-label="뒤로 가기"><img alt="" src="assets/back-22b.svg"></button>
+        <h1 class="reg">알림 설정</h1>
+        <button class="icon-btn text-btn" data-go="s05">건너뛰기</button>
+      </div>
+      <div class="heading">
+        <h2>비슷한 소비가 반복될 때<br>알려드릴까요?</h2>
+        <p class="desc14">AI가 지난 소비 기록을 분석해<br>비슷한 소비가 자주 나타났던 시간대에 미리 알림을 보내드려요</p>
+      </div>
+      <div class="toggle-row">
+        <div><span>감정소비 알림 받기</span><button class="switch" role="switch" aria-checked="true" aria-label="감정소비 알림 받기" data-switch><i></i></button></div>
+      </div>
+      <div class="bottom grow">
+        <div class="cta"><button class="btn" data-go="s05">동의하고 시작하기</button></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 05 기록 항목 선택 ═════════ -->
+    <section class="screen" id="s05" data-title="05 기록 항목 선택">
+      <div class="status" data-tpl="status" data-levels="s05-levels"></div>
+      <div class="appbar">
+        <button class="icon-btn" data-go="s04" aria-label="뒤로 가기"><img alt="" src="assets/back-22.svg"></button>
+        <h1>기록 항목 선택</h1>
+        <button class="icon-btn" data-go="s08" aria-label="닫기"><img alt="" src="assets/close-22.svg"></button>
+      </div>
+      <div class="period">
+        <button class="l" data-soon>11월 전체 내역<img alt="" src="assets/s05-icon2.svg"></button>
+        <button class="r" data-soon aria-label="검색"><img alt="" src="assets/s05-icon3.svg"></button>
+      </div>
+      <div class="filters"><div data-filters>
+        <button class="fchip on" data-f="all">전체</button><button class="fchip" data-f="음식">음식</button><button class="fchip" data-f="카페">카페</button>
+        <button class="fchip" data-f="교통">교통</button><button class="fchip" data-f="쇼핑">쇼핑</button><button class="fchip" data-f="편의점">편의점</button>
+      </div></div>
+      <div class="txwrap grow"><div class="txlist" data-txlist>
+        <div class="tx" data-cat="교통"><button class="tx-item" data-name="교통비 충전" data-time="09:25" data-amount="12,000원" data-icon="assets/s05-icon4.svg" data-bg="#efedfd"><span class="tx-ic" style="background:#efedfd"><img alt="" src="assets/s05-icon4.svg"></span><span class="tx-mid"><b>교통비 충전</b><span>09:25</span></span><span class="tx-end"><b>12,000원</b><em></em></span></button><hr></div>
+        <div class="tx" data-cat="카페"><button class="tx-item" data-name="카페 모먼트" data-time="12:24" data-amount="6,800원" data-icon="assets/s05-icon5.svg" data-bg="#e6f6f7"><span class="tx-ic" style="background:#e6f6f7"><img alt="" src="assets/s05-icon5.svg"></span><span class="tx-mid"><b>카페 모먼트</b><span>12:24</span></span><span class="tx-end"><b>6,800원</b><em></em></span></button><hr></div>
+        <div class="tx" data-cat="음식"><button class="tx-item sel" data-name="bhc치킨" data-time="어제 23:12" data-amount="28,000원" data-icon="assets/s05-icon6.svg" data-big="assets/s06-icon2.svg" data-bg="#fff4e0"><span class="tx-ic" style="background:#fff4e0;border-radius:32px"><img alt="" src="assets/s05-icon6.svg"></span><span class="tx-mid"><b>bhc치킨</b><span>어제 23:12</span></span><span class="tx-end"><b>28,000원</b><em></em></span></button><hr></div>
+        <div class="tx" data-cat="쇼핑"><button class="tx-item" data-name="선물하기" data-time="어제 15:31" data-amount="20,000원" data-icon="assets/s05-icon7.svg" data-bg="#fdebf1"><span class="tx-ic" style="background:#fdebf1"><img alt="" src="assets/s05-icon7.svg"></span><span class="tx-mid"><b>선물하기</b><span>어제 15:31</span></span><span class="tx-end"><b>20,000원</b><em>보상심리</em></span></button><hr></div>
+        <div class="tx" data-cat="편의점"><button class="tx-item" data-name="24시 편의점" data-time="2일 전" data-amount="4,800원" data-icon="assets/s05-icon8.svg" data-bg="#eaf1fe"><span class="tx-ic" style="background:#eaf1fe"><img alt="" src="assets/s05-icon8.svg"></span><span class="tx-mid"><b>24시 편의점</b><span>2일 전</span></span><span class="tx-end"><b>4,800원</b><em>스트레스</em></span></button><hr></div>
+        <div class="tx" data-cat="교통"><button class="tx-item" data-name="택시비" data-time="3일 전" data-amount="9,200원" data-icon="assets/s05-icon4.svg" data-bg="#efedfd"><span class="tx-ic" style="background:#efedfd"><img alt="" src="assets/s05-icon4.svg"></span><span class="tx-mid"><b>택시비</b><span>3일 전</span></span><span class="tx-end"><b>9,200원</b><em>피곤함</em></span></button><hr></div>
+        <div class="tx" data-cat="음식"><button class="tx-item" data-name="버거 하우스" data-time="3일 전" data-amount="8,500원" data-icon="assets/s05-icon9.svg" data-bg="#fff4e0"><span class="tx-ic" style="background:#fff4e0"><img alt="" src="assets/s05-icon9.svg"></span><span class="tx-mid"><b>버거 하우스</b><span>3일 전</span></span><span class="tx-end"><b>8,500원</b><em></em></span></button><hr></div>
+        <div class="tx" data-cat="카페"><button class="tx-item" data-name="카페 모먼트" data-time="4일 전" data-amount="4,500원" data-icon="assets/s05-icon5.svg" data-bg="#e6f6f7"><span class="tx-ic" style="background:#e6f6f7"><img alt="" src="assets/s05-icon5.svg"></span><span class="tx-mid"><b>카페 모먼트</b><span>4일 전</span></span><span class="tx-end"><b>4,500원</b><em></em></span></button><hr></div>
+      </div></div>
+      <div class="record-bar"><button class="btn" data-go="s06">감정 기록하기</button></div>
+    </section>
+
+    <!-- ═════════ 06 기록하기 ═════════ -->
+    <section class="screen" id="s06" data-title="06 기록하기" style="padding-bottom:34px">
+      <div class="status" data-tpl="status" data-levels="s06-levels"></div>
+      <div class="appbar">
+        <button class="icon-btn" data-go="s05" aria-label="뒤로 가기"><img alt="" src="assets/back-22.svg"></button>
+        <h1>기록하기</h1>
+        <button class="icon-btn i24" data-go="s05" aria-label="닫기"><img alt="" src="assets/s06-icon1.svg"></button>
+      </div>
+      <div class="sel-tx"><div class="card">
+        <span class="big" data-tx-bg><img alt="" src="assets/s06-icon2.svg" data-tx-icon></span>
+        <span class="mid">
+          <div><b data-tx-name>bhc치킨</b><span data-tx-meta>어제 23:12 · 음식</span></div>
+          <strong data-tx-amount>28,000원</strong>
+        </span>
+      </div></div>
+      <div class="feel">
+        <h3>소비 당시 느꼈던 감정은 무엇인가요?</h3>
+        <div class="emo-grid" data-emos>
+          <button class="emo" data-e="우울함"><img class="off" alt="" src="assets/s06-icon3.svg"><img class="on" alt="" src="assets/s06-icon3-on.svg"><span>우울함</span></button>
+          <button class="emo on" data-e="스트레스"><img class="off" alt="" src="assets/s06-icon4-off.svg"><img class="on" alt="" src="assets/s06-icon4.svg"><span>스트레스</span></button>
+          <button class="emo" data-e="피곤함"><img class="off" alt="" src="assets/s06-icon5.svg"><img class="on" alt="" src="assets/s06-icon5-on.svg"><span>피곤함</span></button>
+          <button class="emo" data-e="들뜸"><img class="off" alt="" src="assets/s06-icon6.svg"><img class="on" alt="" src="assets/s06-icon6-on.svg"><span>들뜸</span></button>
+          <button class="emo" data-e="보상심리"><img class="off" alt="" src="assets/s06-icon7.svg"><img class="on" alt="" src="assets/s06-icon7-on.svg"><span>보상심리</span></button>
+          <button class="emo" data-e="기타"><img class="off" alt="" src="assets/s06-icon8.svg"><img class="on" alt="" src="assets/s06-icon8-on.svg"><span>기타</span></button>
+        </div>
+        <div class="memo">
+          <textarea maxlength="200" placeholder="(선택) 감정을 느끼게 된 상황과 이유를 기록해보세요" data-memo></textarea>
+          <span class="cnt" data-cnt>0/200자</span>
+        </div>
+      </div>
+      <div class="bottom grow"><div class="cta"><button class="btn l" data-record-done>기록 완료</button></div></div>
+    </section>
+
+    <!-- ═════════ 07 기록 완료 ═════════ -->
+    <section class="screen white" id="s07" data-title="07 기록 완료">
+      <div class="status" data-tpl="status" data-levels="s07-levels"></div>
+      <div class="done-body grow">
+        <button class="done-icon" type="button" aria-label="오늘 쌓은 젠가 층, 누르면 다시 재생"><div class="jg-host" data-jenga="icon"></div></button>
+        <h2>오늘의 감정을 쌓았어요</h2>
+        <p>쌓인 감정은 월말에 한꺼번에 확인해요</p>
+      </div>
+      <div class="done-cta">
+        <button class="btn sb" data-done-ok>확인</button>
+      </div>
+    </section>
+
+    <!-- ═════════ 08 쌓이는 감정 (평소) ═════════ -->
+    <section class="screen" id="s08" data-title="08 쌓이는 감정">
+      <div class="status" data-tpl="status" data-levels="s08-levels"></div>
+      <div class="rp-head" data-tpl="rphead" data-title="11월 리포트"></div>
+      <div class="rp-body g">
+        <div class="ecard tcard">
+          <div class="copy">
+            <div class="top"><span>11월 기록 26건</span></div>
+            <h2>감정이 차곡차곡 쌓이고 있어요</h2>
+            <p>시간이 지날수록 감정 탑이 높아져요</p>
+          </div>
+          <div class="tstage"><div class="jg-host" data-jenga="day"></div></div>
+        </div>
+        <div data-tpl="summary"></div>
+      </div>
+      <div class="tabbar abs" data-tpl="tabbar"></div>
+    </section>
+
+    <!-- ═════════ 08-1 월말 · 감정 청소하기 ═════════ -->
+    <section class="screen" id="s08b" data-title="08-1 월말 · 감정 확인하기">
+      <div class="status" data-tpl="status" data-levels="s08-levels"></div>
+      <div class="rp-head" data-tpl="rphead" data-title="11월 리포트"></div>
+      <div class="rp-body g">
+        <div class="ecard tcard">
+          <div class="copy">
+            <div class="top"><span>11월 기록 26건</span></div>
+            <h2>11월 감정이 가득 쌓였어요</h2>
+            <p>확인하면 이번 달 감정 분석을 볼 수 있어요</p>
+          </div>
+          <div class="tstage"><div class="jg-host" data-jenga="full"></div></div>
+          <div class="actions"><button class="btn l" data-go="s08c">감정 확인하기</button></div>
+        </div>
+        <div data-tpl="summary"></div>
+      </div>
+      <div class="tabbar abs" data-tpl="tabbar"></div>
+    </section>
+
+    <!-- ═════════ 08-2 청소 연출컷 ═════════ -->
+    <section class="screen white" id="s08c" data-title="08-2 분석 중 · 젠가 빼기">
+      <div class="status" data-tpl="status" data-levels="s07-levels"></div>
+      <div class="done-body grow clean-body">
+        <span class="ana-chip">감정을 분석하는 중<span class="ell"></span></span>
+        <h2>튀어나온 젠가를 빼보세요</h2>
+        <div class="jg-stage" data-jg-stage>
+          <div class="jg-host" data-jenga="stage"></div>
+        </div>
+        <div class="jg-hint" data-jg-hint><img alt="" src="assets/s11-iconHand.svg"><span>삐져나온 블록을 옆으로 쭉 당겨요</span></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 09 리포트 · 감정 비율 ═════════ -->
+    <section class="screen scroll" id="s09" data-title="09 리포트 · 감정 비율">
+      <div class="status" data-tpl="status" data-levels="s09-levels"></div>
+      <div class="rp-head" data-tpl="rphead" data-title="11월 리포트"></div>
+      <div class="rp-body">
+        <div class="card ai-sum">
+          <span class="chip24"><img alt="" src="assets/s09-iconSparkle.svg"></span>
+          <div class="t"><b>AI 요약</b><p>이번 달은 퇴근 후 밤 10시 이후<br><em>스트레스</em>로 인한 배달 주문이 가장 많았어요</p></div>
+        </div>
+        <div class="ecard p20">
+          <div class="copy">
+            <div class="top"><b>11월 감정 리포트</b><span>소비 26건</span></div>
+            <h2>감정소비 절반 이상이 스트레스였어요</h2>
+            <p>블록이 많을수록 자주 느낀 감정이에요</p>
+          </div>
+          <div class="emo-wrap">
+            <div class="emo-tower"><div class="jg-host" data-jenga="emo"></div></div>
+            <ul class="emo-list">
+              <li class="grp">긍정 감정</li>
+              <li><i class="e-bl"></i><span>설렘</span><b>4%</b></li>
+              <li class="grp g2">부정 감정</li>
+              <li><i class="e-r4"></i><span>심심함</span><b>4%</b></li>
+              <li><i class="e-r3"></i><span>피곤함</span><b>12%</b></li>
+              <li><i class="e-r2"></i><span>보상심리</span><b>19%</b></li>
+              <li class="top"><i class="e-r1"></i><span>스트레스</span><b>62%</b></li>
+            </ul>
+          </div>
+          <div class="actions two">
+            <button class="btn ghost l" data-go="s10a">자세히 보기</button>
+            <button class="btn ghost blue l" data-go="s12">다음 달 목표 정하기</button>
+          </div>
+        </div>
+        <div data-tpl="summary"></div>
+      </div>
+      <div class="tabbar sticky" data-tpl="tabbar"></div>
+    </section>
+
+    <!-- ═════════ 10-1 분석 근거 · 월간 ═════════ -->
+    <section class="screen scroll" id="s10a" data-title="10-1 분석 근거 · 월간" style="padding-bottom:32px">
+      <div class="status" data-tpl="status" data-levels="levels-b"></div>
+      <div class="appbar p8">
+        <button class="icon-btn i24" data-go="s09" aria-label="뒤로 가기"><img alt="" src="assets/back-24.svg"></button>
+        <h1>분석 근거</h1><span style="width:44px;height:44px"></span>
+      </div>
+      <div class="ev">
+        <div class="seg"><button class="on" data-go="s10a">월간</button><button data-go="s10b">주간</button></div>
+        <div class="panel">
+          <p class="p-lbl">11월 감정소비</p>
+          <p class="p-amt">236,500원</p>
+          <p class="p-sub">내 소비 중 <em>46%</em>가 감정소비예요</p>
+          <div class="chart">
+            <div class="bar"><div style="height:86px"><i style="height:35px"></i></div></div>
+            <div class="bar"><div style="height:97px"><i style="height:42px"></i></div></div>
+            <div class="bar hi"><div style="height:120px"><i style="height:67px"></i></div></div>
+            <div class="bar"><div style="height:60px"><i style="height:25px"></i></div></div>
+            <div class="bar"><div style="height:12px"><i style="height:4px"></i></div></div>
+          </div>
+          <div class="xlbl"><span>1주</span><span>2주</span><span class="hi">3주</span><span>4주</span><span>5주</span></div>
+          <div class="legend"><div><i></i>감정소비</div><div><i></i>전체소비</div></div>
+          <p class="insight">야근이 이어진 3주차에 감정소비가 가장 많았어요</p>
+        </div>
+        <div class="panel tm">
+          <div class="ttl"><b>언제, 어떤 감정이 많았을까요?</b><span>시간대별 감정 기록 26건</span></div>
+          <div class="trow"><div class="when"><b>아침</b><span>6시~12시</span></div><div class="trk"><i style="--w:14.29%"></i></div><span class="n">2건</span><span class="tag">피곤함</span></div>
+          <div class="trow"><div class="when"><b>낮</b><span>12시~6시</span></div><div class="trk"><i style="--w:35.71%"></i></div><span class="n">5건</span><span class="tag">보상심리</span></div>
+          <div class="trow"><div class="when"><b>저녁</b><span>6시~10시</span></div><div class="trk"><i style="--w:35.71%"></i></div><span class="n">5건</span><span class="tag">피곤함</span></div>
+          <div class="trow"><div class="when"><b>밤</b><span>10시~2시</span></div><div class="trk"><i class="hi" style="--w:100%"></i></div><span class="n">14건</span><span class="tag hi">스트레스</span></div>
+        </div>
+        <div class="panel why">
+          <h3>스트레스가 62%라고 본 이유</h3>
+          <div class="why-i"><span class="num">1</span><div class="tt"><b>직접 남긴 감정 중 스트레스가 가장 많았어요</b><span>감정 기록 21건 중 13건이 스트레스였어요</span></div></div>
+          <div class="why-i"><span class="num">2</span><div class="tt"><b>스트레스는 밤 10시 이후에 몰려 있었어요</b><span>스트레스 16건 중 11건이 밤 10시~2시 결제였어요</span></div></div>
+          <div class="why-i"><span class="num">3</span><div class="tt"><b>기록 없는 결제 5건은 AI가 추정했어요</b><span>비슷한 시간·장소에 남긴 기록을 참고했어요.<br>추정이라 틀릴 수 있어요</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 10-2 분석 근거 · 주간 ═════════ -->
+    <section class="screen scroll" id="s10b" data-title="10-2 분석 근거 · 주간" style="padding-bottom:32px">
+      <div class="status" data-tpl="status" data-levels="levels-b"></div>
+      <div class="appbar p8">
+        <button class="icon-btn i24" data-go="s09" aria-label="뒤로 가기"><img alt="" src="assets/back-24.svg"></button>
+        <h1>분석 근거</h1><span style="width:44px;height:44px"></span>
+      </div>
+      <div class="ev">
+        <div class="seg"><button data-go="s10a">월간</button><button class="on" data-go="s10b">주간</button></div>
+        <div class="panel">
+          <p class="p-lbl">11월 3주차 감정소비 · 11.11~11.17</p>
+          <p class="p-amt">92,000원</p>
+          <p class="p-sub">내 소비 중 <em>56%</em>가 감정소비예요</p>
+          <div class="chart">
+            <div class="bar"><div style="height:55px"><i style="height:30px"></i></div></div>
+            <div class="bar"><div style="height:45px"><i style="height:15px"></i></div></div>
+            <div class="bar"><div style="height:65px"><i style="height:40px"></i></div></div>
+            <div class="bar hi"><div style="height:120px"><i style="height:95px"></i></div></div>
+            <div class="bar"><div style="height:75px"><i style="height:35px"></i></div></div>
+            <div class="bar"><div style="height:20px"><i style="height:5px"></i></div></div>
+            <div class="bar"><div style="height:30px"><i style="height:10px"></i></div></div>
+          </div>
+          <div class="xlbl"><span>월</span><span>화</span><span>수</span><span class="hi">목</span><span>금</span><span>토</span><span>일</span></div>
+          <div class="legend"><div><i></i>감정소비</div><div><i></i>전체소비</div></div>
+          <p class="insight">목요일 밤에 감정소비가 몰렸어요</p>
+        </div>
+        <div class="panel tm">
+          <div class="ttl"><b>언제, 어떤 감정이 많았을까요?</b><span>시간대별 감정 기록 9건</span></div>
+          <div class="trow"><div class="when"><b>아침</b><span>6시~12시</span></div><div class="trk"><i style="--w:0%"></i></div><span class="n">0건</span><span class="tag">없음</span></div>
+          <div class="trow"><div class="when"><b>낮</b><span>12시~6시</span></div><div class="trk"><i style="--w:16.67%"></i></div><span class="n">1건</span><span class="tag">보상심리</span></div>
+          <div class="trow"><div class="when"><b>저녁</b><span>6시~10시</span></div><div class="trk"><i style="--w:33.33%"></i></div><span class="n">2건</span><span class="tag">피곤함</span></div>
+          <div class="trow"><div class="when"><b>밤</b><span>10시~2시</span></div><div class="trk"><i class="hi" style="--w:100%"></i></div><span class="n">6건</span><span class="tag hi">스트레스</span></div>
+        </div>
+        <div class="panel why">
+          <h3>이번 주 스트레스가 많았던 이유</h3>
+          <div class="why-i"><span class="num">1</span><div class="tt"><b>이번 주 감정 기록 9건 중 6건이 스트레스였어요</b><span>한 달 평균보다 스트레스 비율이 높았어요</span></div></div>
+          <div class="why-i"><span class="num">2</span><div class="tt"><b>목요일 하루에만 38,000원을 감정소비로 썼어요</b><span>이번 주 감정소비의 41%가 목요일에 몰렸어요</span></div></div>
+          <div class="why-i"><span class="num">3</span><div class="tt"><b>야근한 수·목·금 밤에 배달이 집중됐어요</b><span>세 번 모두 밤 11시 전후 결제였어요</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 12 다음 달 목표 설정 ═════════ -->
+    <section class="screen" id="s12" data-title="12 다음 달 목표">
+      <div class="status" data-tpl="status" data-levels="s12-levels"></div>
+      <div class="rp-head" data-tpl="rphead" data-title="12월 리포트"></div>
+      <div class="rp-body g">
+        <div class="ecard p18">
+          <div class="copy">
+            <h2 data-g-h>11월 감정을 모두 확인했어요</h2>
+            <p data-g-p>이제 12월을 준비해볼까요?</p>
+          </div>
+          <div class="mark"><div class="circ"><img alt="" src="assets/s12-iconSparkle.svg"></div><p data-g-mark>11월 감정 분석을 마쳤어요</p></div>
+          <div class="actions p20"><button class="btn l" data-open-goal>다음 달 목표 설정하러 가기</button></div>
+        </div>
+        <div data-tpl="summary"></div>
+      </div>
+      <div class="tabbar abs" data-tpl="tabbar"></div>
+      <div class="dim t45" data-goal-dim></div>
+      <div class="goal-sheet" data-goal-sheet role="dialog" aria-label="12월 목표를 정해요">
+        <div class="handle"><i></i></div>
+        <div class="ttl"><b>12월 목표를 정해요</b><p>11월 목표 그대로예요. AI 추천을 눌러 적용해 보세요.</p></div>
+        <div class="gbox" data-goal data-days="31" data-max="3000000" data-step="10000">
+          <p class="lbl">한 달 생활비 목표</p>
+          <div class="amt"><b data-amount>800,000</b><span>원</span></div>
+          <p class="avg">하루 평균 <em data-avg>25,800원</em> 정도 쓸 수 있어요</p>
+          <div class="sl" data-slider style="--pct:26.67%">
+            <div class="track"></div><div class="fill"></div>
+            <div class="thumb"><img alt="" src="assets/s12-thumb.svg"></div>
+            <input type="range" min="0" max="3000000" step="10000" value="800000" aria-label="12월 생활비 목표">
+          </div>
+          <div class="range"><span>0원</span><span>300만원</span></div>
+          <button type="button" class="ai" data-ai-apply data-value="750000">AI 추천 75만원 · 11월보다 5만원 적게</button>
+        </div>
+        <div class="gbox items">
+          <div class="q"><p>특별히 관리하고 싶은 소비 항목이 있나요? (선택)</p><p>11월 감정소비가 많았던 배달·편의점을 참고해 보세요</p></div>
+          <div class="pchips" data-chips>
+            <button class="pchip">음식</button><button class="pchip">카페</button><button class="pchip">교통</button><button class="pchip">쇼핑</button>
+            <button class="pchip">배달</button><button class="pchip">편의점</button><button class="pchip">의류·뷰티</button><button class="pchip">기타</button>
+          </div>
+        </div>
+        <button class="btn l" data-save-goal>12월 목표 저장하기</button>
+      </div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+</div>
+
+<!-- 반복 컴포넌트 템플릿 -->
+<template id="tpl-status">
+  <span class="time">9:41</span><img class="levels" alt="" src="">
+</template>
+<template id="tpl-rphead">
+  <button class="t" data-soon><b></b><img alt="" src="assets/report-chevron-down.svg"></button>
+  <button class="bell" data-soon aria-label="알림"><img alt="" src="assets/report-bell.svg"></button>
+</template>
+<template id="tpl-summary">
+  <div class="sum">
+    <div class="c c1">
+      <div class="hd"><b>목표 생활비</b><img alt="" src="assets/report-chevron-right.svg"></div>
+      <div class="bd">
+        <div class="tx2">
+          <div><p class="big">36%</p><p class="sub">남았어요</p></div>
+          <div class="rem"><span>남은 금액</span><b>287,600원</b><span>/ 800,000원</span></div>
+        </div>
+        <div class="gauge"><i></i></div>
+      </div>
+    </div>
+    <div class="col2">
+      <div class="c c2">
+        <div class="hd"><b>반복 소비</b><img alt="" src="assets/report-chevron-right.svg"></div>
+        <div class="v"><b>17회</b><span>배달 9회 · 편의점 5회</span></div>
+      </div>
+      <div class="c c2">
+        <div class="hd"><b>주의 시간대</b><img alt="" src="assets/report-moon.svg"></div>
+        <div class="v"><b class="s18">밤 10시~2시</b><span>감정소비 61%</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+<template id="tpl-tabbar">
+  <div class="row">
+    <button class="on" data-go="s08"><img alt="" src="assets/tab-home.svg">홈</button>
+    <button data-soon><img alt="" src="assets/tab-goal.svg">소비 목표</button>
+    <button data-soon><img alt="" src="assets/tab-record.svg">감정 기록</button>
+    <button data-soon><img alt="" src="assets/tab-my.svg">마이페이지</button>
+  </div>
+</template>
+
+<script src="jenga.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
