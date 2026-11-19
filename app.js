@@ -291,7 +291,7 @@
   });
   stage.addEventListener('pointermove', (e) => {
     if (!jgDrag || !jgPull) return;
-    jgDrag.dx = e.clientX - jgDrag.x;
+    jgDrag.dx = (e.clientX - jgDrag.x) / fitScale;
     const { h, bk } = jgPull;
     Jenga.setPull(h, bk, Math.max(-8, jgDrag.dx));
   });
@@ -359,10 +359,24 @@
     };
   });
 
+  /* ───────── 데스크톱: 창 높이가 작으면 폰 프레임을 통째로 줄여서 한 화면에 맞춘다 ───────── */
+  let fitScale = 1;
+  const wrapEl = document.querySelector('.wrap');
+  const fit = () => {
+    const desktop = innerWidth > 640 && !document.body.classList.contains('bare');
+    const need = 852 + 20 + 48 + 20; // 프레임 + 테두리 + 위아래 여백
+    fitScale = desktop ? Math.min(1, innerHeight / need) : 1;
+    wrapEl.style.transform = fitScale < 1 ? 'scale(' + fitScale + ')' : '';
+    wrapEl.style.transformOrigin = '50% 0';
+    wrapEl.style.marginBottom = fitScale < 1 ? -(wrapEl.offsetHeight * (1 - fitScale)) + 'px' : '';
+  };
+  addEventListener('resize', fit);
+
   /* ───────── 시작 ───────── */
   // ?bare : 목록·그림자 없이 프레임만 (디자인 대조용), ?h=1077 : 프레임 높이 지정
   const q = new URLSearchParams(location.search);
   if (q.has('bare')) document.body.classList.add('bare');
+  fit();
   if (q.get('h')) $('#device').style.height = q.get('h') + 'px';
   go(location.hash.slice(1) || 'ob1');
 })();
